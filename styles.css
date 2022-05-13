@@ -1,0 +1,41 @@
+* {
+    padding:0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+
+#canvas {
+    width: 100vh;
+    height: 100vh;
+}
+
+.col {
+    background: black;
+    width: calc(100% / 20);
+    border: 1px solid grey;
+}
+
+.snake {
+    background: green;
+}
+
+.head {
+    background: white;
+}
+
+.food {
+    background: red;
+}
+
+.row {
+    height: calc(100% / 20);
+    display: flex;
+    flex-direction: row;
+}
