@@ -1,12 +1,12 @@
 {
-  "name": "crobinha",
+  "name": "snakegame",
   "version": "1.0.0",
   "description": "",
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "JVSL",
   "license": "ISC",
   "dependencies": {
     "require": "^2.4.20"

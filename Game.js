@@ -26,10 +26,10 @@ class Game {
       this.spawnFood()
       this.snake.ate = false;
     }
-    if (!this.snake.checkCollision())
-      return
-    this.snake.die()
-    this.over = true;
+    if (this.snake.checkCollision()) {
+      this.snake.die()
+      this.over = true;
+    }
   }
 
   spawnFood() {
