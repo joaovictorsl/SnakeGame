@@ -41,7 +41,7 @@ class Game {
       let randomRow = this.#getRandomNumber();
       let randomCol = this.#getRandomNumber();
       tile = this.grid.gridArray[randomRow][randomCol];
-    } while (tile.classList.contains('snake'));
+    } while (tile.classList.contains('snake') || tile.classList.contains('head'));
     tile.classList.add('food');
   }
 
