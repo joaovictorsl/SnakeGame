@@ -36,10 +36,12 @@ class App {
     };
     const game = new Game(gridSize, startSnakeSize);
     game.start();
-    console.log('updateRate[game.gridSize]', updateRate[game.gridSize])
     const interval = setInterval(() => {
       game.update();
       if (game.over) {
+        let sound = new Audio('src/public/die.wav');
+        sound.playbackRate = 2;
+        sound.play();
         game.clear();
         clearInterval(interval);
         this.gameOverMenu.build(game.snake);

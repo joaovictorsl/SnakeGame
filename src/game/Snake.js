@@ -23,6 +23,7 @@ class Snake {
   eat(tile) {
     tile.classList.remove('food');
     this.ate = true;
+    new Audio('./src/public/eat.wav').play();
   }
 
   move() {
