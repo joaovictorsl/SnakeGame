@@ -1,4 +1,5 @@
 import { Position } from './Position.js';
+import { Utils } from '../Utils.js';
 
 class Snake {
   constructor(grid, size = 5) {
@@ -13,7 +14,7 @@ class Snake {
   #populateBody(size) {
     let body = [];
     for (let i = 0; i < size; i++) {
-      body.unshift(new Position(i, 10))
+      body.unshift(new Position(i, 10));
     }
     return body;
   }
@@ -24,10 +25,6 @@ class Snake {
     this.ate = true;
   }
 
-  die() {
-
-  }
-
   move() {
     let oldHeadPosition = this.body[0];
     let newHeadPosition = this.getNewHeadPosition();
@@ -35,8 +32,7 @@ class Snake {
     let removeTail = true;
 
     if (tile.classList.contains('food')) {
-      console.log('food')
-      this.eat(tile, newHeadPosition)
+      this.eat(tile, newHeadPosition);
       removeTail = false;
     }
 
@@ -77,13 +73,13 @@ class Snake {
   }
 
   #updateBodyPositions(newHeadPosition, removeTail) {
-    this.body.unshift(newHeadPosition)
+    this.body.unshift(newHeadPosition);
     if (removeTail)
-      this.body.pop()
+      this.body.pop();
   }
 
   #keepSnakeInGrid(newHeadPosition) {
-    let positionAsArray = newHeadPosition.toArray()
+    let positionAsArray = newHeadPosition.toArray();
 
     for (let idx in positionAsArray) {
       if (positionAsArray[idx] > this.grid.size - 1) {
@@ -94,43 +90,24 @@ class Snake {
       }
     }
 
-    newHeadPosition = Position.fromArray(positionAsArray)
+    newHeadPosition = Position.fromArray(positionAsArray);
 
     return new Position(newHeadPosition.x, newHeadPosition.y);
   }
 
   checkCollision() {
-    let bodyAsArray = this.body.map((value) => value.toArray())
+    let bodyAsArray = this.body.map((value) => value.toArray());
 
     for (let i = 0; i < bodyAsArray.length - 1; i++) {
       const element = bodyAsArray[i];
       for (let j = i + 1; j < bodyAsArray.length; j++) {
         const otherElement = bodyAsArray[j];
-        if (this.#compareArrays(element, otherElement)) {
-          return true
+        if (Utils.compareArrays(element, otherElement)) {
+          return true;
         }
       }
     }
   }
-
-  #compareArrays(arr1, arr2) {
-    if (!arr2)
-      return false;
-
-    if (arr1.length != arr2.length)
-      return false;
-
-    for (var i = 0, l = arr1.length; i < l; i++) {
-      if (arr1[i] instanceof Array && arr2[i] instanceof Array) {
-        if (!arr1[i].equals(arr2[i]))
-          return false;
-      }
-      else if (arr1[i] != arr2[i]) {
-        return false;
-      }
-    }
-    return true;
-  }
 }
 
-export { Snake }
+export { Snake };

@@ -2,7 +2,7 @@ class Grid {
   constructor(size) {
     this.size = size;
     this.canvas = document.getElementById("canvas");
-    this.gridArray = this.populate()
+    this.gridArray = this.populate();
   }
 
   populate() {
@@ -13,19 +13,19 @@ class Grid {
 
       for (let x = 0; x < this.size; x++) {
         const column = this.createTile('col', x, row);
-        gridArray[y].push(column)
+        gridArray[y].push(column);
       }
     }
     return gridArray;
   }
 
   createTile(type, value, father) {
-    const element = document.createElement('div')
-    element.classList.add(type)
-    element.setAttribute(type, value)
-    father.appendChild(element)
+    const element = document.createElement('div');
+    element.classList.add(type);
+    element.setAttribute(type, value);
+    father.appendChild(element);
 
-    return element
+    return element;
   }
 
   spawnSnake(snake) {
@@ -46,4 +46,4 @@ class Grid {
 
 }
 
-export { Grid }
+export { Grid };

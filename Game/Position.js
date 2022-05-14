@@ -17,4 +17,4 @@ class Position {
   }
 }
 
-export { Position }
+export { Position };

@@ -1,11 +1,11 @@
 class InputManager {
   constructor(snake) {
-    this.snake = snake
+    this.snake = snake;
   }
 
   start() {
     document.addEventListener('keydown', (event) => {
-      event.preventDefault()
+      event.preventDefault();
       let desiredDirection = this.snake.direction;
       if (event.key == 'ArrowLeft' || event.key == 'a') {
         desiredDirection = 'L';
@@ -35,4 +35,4 @@ class InputManager {
   }
 }
 
-export { InputManager }
+export { InputManager };

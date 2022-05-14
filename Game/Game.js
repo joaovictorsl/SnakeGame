@@ -23,11 +23,10 @@ class Game {
   update() {
     this.snake.move();
     if (this.snake.ate) {
-      this.spawnFood()
+      this.spawnFood();
       this.snake.ate = false;
     }
     if (this.snake.checkCollision()) {
-      this.snake.die()
       this.over = true;
     }
   }
@@ -37,9 +36,13 @@ class Game {
     do {
       let randomRow = this.#getRandomNumber();
       let randomCol = this.#getRandomNumber();
-      tile = this.grid.gridArray[randomRow][randomCol]
+      tile = this.grid.gridArray[randomRow][randomCol];
     } while (tile.classList.contains('snake'));
-    tile.classList.add('food')
+    tile.classList.add('food');
+  }
+
+  clear() {
+    this.grid.gridArray.forEach(el => el[0].parentElement.remove());
   }
 
   #getRandomNumber(start = 0, stop = this.gridSize) {
@@ -47,4 +50,4 @@ class Game {
   }
 }
 
-export { Game }
+export { Game };
