@@ -1,0 +1,11 @@
+.snake {
+  background: green;
+}
+
+.head {
+  background: white;
+}
+
+.food {
+  background: red;
+}

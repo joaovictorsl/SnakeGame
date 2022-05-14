@@ -1,5 +1,5 @@
 * {
-    padding:0;
+    padding: 0;
     margin: 0;
 }
 
@@ -14,28 +14,19 @@ body {
 #canvas {
     width: 100vh;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./public/grassTexture.jfif');
 }
 
 .col {
-    background: black;
-    width: calc(100% / 20);
-    border: 1px solid grey;
-}
-
-.snake {
-    background: green;
-}
-
-.head {
-    background: white;
-}
-
-.food {
-    background: red;
+    width: calc(100vh / 20);
 }
 
 .row {
-    height: calc(100% / 20);
+    height: calc(100vh / 20);
     display: flex;
     flex-direction: row;
 }
