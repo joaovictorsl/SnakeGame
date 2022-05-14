@@ -1,6 +1,7 @@
 import { Grid } from './Grid.js';
 import { Snake } from './Snake.js';
 import { InputManager } from './InputManager.js';
+import { Counter } from './Counter.js';
 
 class Game {
 
@@ -17,6 +18,8 @@ class Game {
     this.snake = new Snake(this.grid, this.startSnakeSize);
     const input = new InputManager(this.snake);
     input.start();
+    this.counter = new Counter(this.snake);
+    this.counter.build();
     this.spawnFood();
   }
 
@@ -25,6 +28,7 @@ class Game {
     if (this.snake.ate) {
       this.spawnFood();
       this.snake.ate = false;
+      this.counter.update();
     }
     if (this.snake.checkCollision()) {
       this.over = true;
@@ -43,6 +47,7 @@ class Game {
 
   clear() {
     this.grid.gridArray.forEach(el => el[0].parentElement.remove());
+    this.counter.destroy();
   }
 
   #getRandomNumber(start = 0, stop = this.gridSize) {

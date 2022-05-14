@@ -9,3 +9,11 @@
 .food {
   background: red;
 }
+
+.counter {
+  color: white;
+  font-size: 100px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
