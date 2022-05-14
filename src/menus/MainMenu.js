@@ -7,7 +7,7 @@ export class MainMenu extends Menu {
     let menu = document.createElement('div');
     menu.className = this.className;
     let title = document.createElement('span');
-    title.innerHTML = 'Welcome to the SnakeGame!!!';
+    title.innerHTML = 'Welcome to SnakeGame!!!';
     menu.appendChild(title);
 
     [['gridSize', [20, 50, 75]], ['snakeStartSize', [3, 5, 7]]].forEach(optionAndValues => {
