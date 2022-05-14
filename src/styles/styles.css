@@ -21,12 +21,32 @@ body {
     background-image: url('../public/grassTexture.jfif');
 }
 
-.col {
+.col20 {
     width: calc(100vh / 20);
 }
 
-.row {
+.row20 {
     height: calc(100vh / 20);
+    display: flex;
+    flex-direction: row;
+}
+
+.col50 {
+    width: calc(100vh / 50);
+}
+
+.row50 {
+    height: calc(100vh / 50);
+    display: flex;
+    flex-direction: row;
+}
+
+.col75 {
+    width: calc(100vh / 75);
+}
+
+.row75 {
+    height: calc(100vh / 75);
     display: flex;
     flex-direction: row;
 }

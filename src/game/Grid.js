@@ -8,11 +8,11 @@ class Grid {
   populate() {
     let gridArray = [];
     for (let y = 0; y < this.size; y++) {
-      const row = this.createTile('row', y, this.canvas);
+      const row = this.createTile(`row${this.size}`, y, this.canvas);
       gridArray.push([]);
 
       for (let x = 0; x < this.size; x++) {
-        const column = this.createTile('col', x, row);
+        const column = this.createTile(`col${this.size}`, x, row);
         gridArray[y].push(column);
       }
     }

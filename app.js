@@ -27,8 +27,14 @@ class App {
 
   startGame(gridSize, startSnakeSize) {
     this.mainMenu.destroy();
+    let updateRate = {
+      20: 100,
+      50: 75,
+      75: 50,
+    };
     const game = new Game(gridSize, startSnakeSize);
     game.start();
+    console.log('updateRate[game.gridSize]', updateRate[game.gridSize])
     const interval = setInterval(() => {
       game.update();
       if (game.over) {
@@ -38,7 +44,7 @@ class App {
         let resetButton = document.getElementById('resetButton');
         resetButton.addEventListener('click', () => this.resetGame());
       }
-    }, 100);
+    }, updateRate[game.gridSize]);
   }
 
   resetGame() {
