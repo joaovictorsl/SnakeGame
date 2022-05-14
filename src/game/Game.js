@@ -11,13 +11,14 @@ class Game {
     this.over = false;
     this.snake = null;
     this.grid = null;
+    this.input = null;
   }
 
   start() {
     this.grid = new Grid(this.gridSize);
     this.snake = new Snake(this.grid, this.startSnakeSize);
-    const input = new InputManager(this.snake);
-    input.start();
+    this.input = new InputManager(this.snake);
+    this.input.start();
     this.counter = new Counter(this.snake);
     this.counter.build();
     this.spawnFood();
@@ -48,6 +49,7 @@ class Game {
   clear() {
     this.grid.gridArray.forEach(el => el[0].parentElement.remove());
     this.counter.destroy();
+    this.input.clear();
   }
 
   #getRandomNumber(start = 0, stop = this.gridSize) {

@@ -4,26 +4,32 @@ class InputManager {
   }
 
   start() {
-    document.addEventListener('keydown', (event) => {
-      event.preventDefault();
-      let desiredDirection = this.snake.direction;
-      if (event.key == 'ArrowLeft' || event.key == 'a') {
-        desiredDirection = 'L';
-      }
-      else if (event.key == 'ArrowRight' || event.key == 'd') {
-        desiredDirection = 'R';
-      }
-      else if (event.key == 'ArrowUp' || event.key == 'w') {
-        desiredDirection = 'U';
-      }
-      else if (event.key == 'ArrowDown' || event.key == 's') {
-        desiredDirection = 'D';
-      }
-      if (this.#isDirectionOpposite(desiredDirection)) {
-        return
-      }
-      this.snake.direction = desiredDirection
-    });
+    document.addEventListener('keydown', this.keydownHandler);
+  }
+
+  clear() {
+    document.removeEventListener('keydown', this.keydownHandler);
+  }
+
+  keydownHandler(event) {
+    event.preventDefault();
+    let desiredDirection = this.snake.direction;
+    if (event.key == 'ArrowLeft' || event.key == 'a') {
+      desiredDirection = 'L';
+    }
+    else if (event.key == 'ArrowRight' || event.key == 'd') {
+      desiredDirection = 'R';
+    }
+    else if (event.key == 'ArrowUp' || event.key == 'w') {
+      desiredDirection = 'U';
+    }
+    else if (event.key == 'ArrowDown' || event.key == 's') {
+      desiredDirection = 'D';
+    }
+    if (this.#isDirectionOpposite(desiredDirection)) {
+      return
+    }
+    this.snake.direction = desiredDirection
   }
 
   #isDirectionOpposite(direction) {
