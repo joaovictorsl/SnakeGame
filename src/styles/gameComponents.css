@@ -7,7 +7,9 @@
 }
 
 .food {
-  background: red;
+  background-image: url('../public/apple_png.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .counter {
