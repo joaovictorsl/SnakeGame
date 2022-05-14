@@ -13,7 +13,9 @@ class App {
   main() {
     this.mainMenu.build();
     let gridSize = Array.from(document.getElementsByName("gridSize"));
+    gridSize[0].click()
     let snakeStartSize = Array.from(document.getElementsByName("snakeStartSize"));
+    snakeStartSize[0].click()
     let startButton = document.getElementById("startButton");
 
     startButton.addEventListener('click', () => this.handleStartGame(gridSize.filter(v => v.checked)[0], snakeStartSize.filter(v => v.checked)[0]));
