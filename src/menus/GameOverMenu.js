@@ -31,7 +31,7 @@ export class GameOverMenu extends Menu {
 
   updateHighestScore(newScore) {
     let highestScore = localStorage.getItem('highestScore');
-    if (highestScore && highestScore < newScore) {
+    if (!highestScore || highestScore < newScore) {
       highestScore = newScore;
       localStorage.setItem('highestScore', newScore);
     }
