@@ -1,16 +1,17 @@
-import { Game } from './Game/Game.js';
-import { Menu } from './Menu.js';
-import { GameOverScreen } from './GameOverScreen.js';
+import { Game } from './src/game/Game.js';
+import { MainMenu } from './src/menus/MainMenu.js';
+import { GameOverMenu } from './src/menus/GameOverMenu.js';
+
 
 class App {
 
   constructor() {
-    this.menu = new Menu();
-    this.gameOverScreen = new GameOverScreen();
+    this.mainMenu = new MainMenu();
+    this.gameOverMenu = new GameOverMenu();
   }
 
   main() {
-    this.menu.build();
+    this.mainMenu.build();
     let gridSize = Array.from(document.getElementsByName("gridSize"));
     let snakeStartSize = Array.from(document.getElementsByName("snakeStartSize"));
     let startButton = document.getElementById("startButton");
@@ -21,22 +22,28 @@ class App {
   handleStartGame(gridSize, startSnakeSize) {
     gridSize = parseInt(gridSize?.value) || undefined;
     startSnakeSize = parseInt(startSnakeSize?.value) || undefined;
-    this.menu.destroy();
     this.startGame(gridSize, startSnakeSize);
   }
 
   startGame(gridSize, startSnakeSize) {
+    this.mainMenu.destroy();
     const game = new Game(gridSize, startSnakeSize);
     game.start();
     const interval = setInterval(() => {
       game.update();
       if (game.over) {
-        console.log('over');
-        clearInterval(interval);
         game.clear();
-        this.gameOverScreen.build(game.snake);
+        clearInterval(interval);
+        this.gameOverMenu.build(game.snake);
+        let resetButton = document.getElementById('resetButton');
+        resetButton.addEventListener('click', () => this.resetGame());
       }
     }, 100);
+  }
+
+  resetGame() {
+    this.gameOverMenu.destroy();
+    this.main();
   }
 
 }

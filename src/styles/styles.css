@@ -18,7 +18,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('./public/grassTexture.jfif');
+    background-image: url('../public/grassTexture.jfif');
 }
 
 .col {

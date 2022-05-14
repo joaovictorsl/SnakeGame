@@ -15,7 +15,8 @@ export class Utils {
       formattedAttributeName += name.slice(start, upperCaseIdx) + ' ';
       start = upperCaseIdx;
     }
-    return formattedAttributeName;
+    formattedAttributeName += name.slice(start, name.length);
+    return formattedAttributeName.toLowerCase();
   }
 
   static isUpper(char) {

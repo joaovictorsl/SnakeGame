@@ -1,33 +1,25 @@
-import { Utils } from './Utils.js';
+import { Utils } from '../Utils.js';
+import { Menu } from './Menu.js';
 
-export class Menu {
-  build() {
-    let canvas = document.getElementById('canvas');
-    let menu = this.createMenu();
-    canvas.appendChild(menu);
-  }
-
-  destroy() {
-    let menu = document.getElementsByClassName('menu')[0];
-    menu.remove();
-  }
+export class MainMenu extends Menu {
 
   createMenu() {
     let menu = document.createElement('div');
-    menu.className = 'menu';
+    menu.className = this.className;
     let title = document.createElement('span');
     title.innerHTML = 'Welcome to the SnakeGame!!!';
-    let startButton = document.createElement('button');
-    startButton.id = 'startButton';
-    startButton.innerHTML = 'Start Game';
-
     menu.appendChild(title);
+
     [['gridSize', [20, 50, 75]], ['snakeStartSize', [3, 5, 7]]].forEach(optionAndValues => {
       let span = document.createElement('span');
       span.innerHTML = `Select ${Utils.formatAttributeName(optionAndValues[0])}`;
       menu.appendChild(span);
       menu.appendChild(this.createSelection(...optionAndValues));
     });
+
+    let startButton = document.createElement('button');
+    startButton.id = 'startButton';
+    startButton.innerHTML = 'Start Game';
     menu.appendChild(startButton);
     return menu;
   }
